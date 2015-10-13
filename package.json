@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yoelfme/university#readme",
   "dependencies": {
-    "hapi": "^10.4.1"
+    "hapi": "^10.4.1",
+    "hoek": "^2.16.3"
   }
 }
