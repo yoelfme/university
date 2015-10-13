@@ -1,0 +1,22 @@
+{
+  "name": "hapi_university",
+  "version": "0.0.1",
+  "description": "Assigment 1 of Hapi University",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoelfme/university.git"
+  },
+  "author": "Yoel Monzon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoelfme/university/issues"
+  },
+  "homepage": "https://github.com/yoelfme/university#readme",
+  "dependencies": {
+    "hapi": "^10.4.1"
+  }
+}
