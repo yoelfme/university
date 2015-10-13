@@ -2,7 +2,7 @@
 
 // Load Modules
 
-var Index = require('../lib/index');
+var Index = require('../lib');
 var Version = require('../lib/version');
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
@@ -25,6 +25,7 @@ describe('Index', function () {
 
     it('Server fail :(', { parallel: false }, function (done) {
 
+        var register = Version.register;
         Version.register = function (server, options, next) {
 
             return next(new Error());
@@ -37,6 +38,7 @@ describe('Index', function () {
         Index.init(null, function (err, server) {
 
             expect(err).to.exist();
+            Version.register = register;
             server.stop(done);
         });
     });
