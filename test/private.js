@@ -106,7 +106,7 @@ describe('Private Plugin', function () {
         });
     });
 
-    it('Register Auth Basic Plugin bad :(', function (done) {
+    it('Register Auth Basic Plugin bad :(', { parallel: false }, function (done) {
 
         var register = Basic.register;
 
