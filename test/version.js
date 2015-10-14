@@ -3,7 +3,7 @@
 // Load Modules
 
 var Hapi = require('hapi');
-var Index = require('../lib');
+var Server = require('../lib');
 var Version = require('../lib/version');
 var Package = require('../package.json');
 var Lab = require('lab');
@@ -30,7 +30,7 @@ describe('Version Plugin', function () {
 
     it('response is equal to package version', function (done) {
 
-        Index.init(8000, function (err, server) {
+        Server.init(8000, function (err, server) {
 
             expect(server.info.port).to.equal(8000);
 
