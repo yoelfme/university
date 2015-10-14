@@ -2,7 +2,7 @@
 
 // Load Modules
 
-var Index = require('../lib');
+var Server = require('../lib');
 var Version = require('../lib/version');
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
@@ -12,11 +12,11 @@ var describe = lab.describe;
 var it = lab.it;
 var expect = Code.expect;
 
-describe('Index', function () {
+describe('Server', function () {
 
     it('Server start well :)', function (done) {
 
-        Index.init(null, function (err, server) {
+        Server.init(null, function (err, server) {
 
             expect(err).to.not.exist();
             server.stop(done);
@@ -35,7 +35,7 @@ describe('Index', function () {
             name: 'test'
         };
 
-        Index.init(null, function (err, server) {
+        Server.init(null, function (err, server) {
 
             expect(err).to.exist();
             Version.register = register;
