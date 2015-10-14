@@ -30,9 +30,9 @@ describe('Version Plugin', function () {
 
     it('response is equal to package version', function (done) {
 
-        Server.init(8000, function (err, server) {
+        Server.init(null, function (err, server) {
 
-            expect(server.info.port).to.equal(8000);
+            expect(err).to.not.exist();
 
             server.inject('/version', function (response) {
 

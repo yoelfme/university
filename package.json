@@ -4,7 +4,7 @@
   "description": "Assigment 1 of Hapi University",
   "main": "index.js",
   "scripts": {
-    "test": "lab -a code -t 100 -L",
+    "test": "lab -a code -t 100 -Lv",
     "test-tap": "lab -a code -r tap -o tests.tap",
     "test-cov-html": "lab -a code -r html -o coverage.html",
     "start": "node lib/start.js"

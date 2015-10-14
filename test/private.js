@@ -69,7 +69,6 @@ describe('Private Plugin', function () {
             expect(err).to.exist();
             done();
         });
-
     });
 
     it('Authentication successfully :)', function (done) {
@@ -89,7 +88,6 @@ describe('Private Plugin', function () {
             });
 
         });
-
     });
 
     it('Authentication failed :(', function (done) {
