@@ -3,4 +3,7 @@ node_modules/
 .DS_Store
 npm-debug.log
 
-coverage.html
+coverage.*
+
+lib/certs/server.csr
+lib/certs/server.key.secure
