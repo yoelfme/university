@@ -1,7 +1,9 @@
 {
-    "plugins": [
-        { "./version": {} },
-        { "./private": {} },
-        { "./home": {} }
-    ]
+    "plugins": {
+        "./version": {} ,
+        "./private": {} ,
+        "./home": {},
+        "./auth": {},
+        "hapi-auth-basic": {}
+    }
 }

@@ -41,7 +41,7 @@ describe('Version Plugin', function () {
         });
     });
 
-    it('response is equal to package version', function (done) {
+    it('Response is equal to package version', function (done) {
 
         Server.init(internals.serverOptions, function (err, server) {
 
