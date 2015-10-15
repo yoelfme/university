@@ -19,7 +19,7 @@ describe('Server', function () {
         Server.init(null, function (err, server) {
 
             expect(err).to.not.exist();
-            server.stop(done);
+            done();
         });
     });
 
@@ -39,7 +39,7 @@ describe('Server', function () {
 
             expect(err).to.exist();
             Version.register = register;
-            server.stop(done);
+            done();
         });
     });
 });

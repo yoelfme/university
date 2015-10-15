@@ -1,0 +1,7 @@
+{
+    "plugins": [
+        { "./version": {} },
+        { "./private": {} },
+        { "./home": {} }
+    ]
+}

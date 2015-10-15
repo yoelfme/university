@@ -1,7 +1,7 @@
 {
   "name": "hapi_university",
   "version": "0.0.1",
-  "description": "Assigment 1 of Hapi University",
+  "description": "Hapi University",
   "main": "index.js",
   "scripts": {
     "test": "lab -a code -t 100 -Lv",
@@ -14,15 +14,18 @@
     "url": "git+https://github.com/yoelfme/university.git"
   },
   "author": "Yoel Monzon",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/yoelfme/university/issues"
   },
   "homepage": "https://github.com/yoelfme/university#readme",
   "dependencies": {
+    "glue": "^2.3.0",
+    "handlebars": "^4.0.3",
     "hapi": "^10.4.1",
     "hapi-auth-basic": "^3.0.0",
-    "hoek": "^2.16.3"
+    "hoek": "^2.16.3",
+    "vision": "^3.0.0"
   },
   "devDependencies": {
     "code": "^1.5.0",
