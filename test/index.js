@@ -12,11 +12,24 @@ var describe = lab.describe;
 var it = lab.it;
 var expect = Code.expect;
 
+// Declare internals
+
+var internals = {};
+
+internals.serverOptions = {
+    connections: [
+        {
+            host: 'localhost',
+            port: null
+        }
+    ]
+};
+
 describe('Server', function () {
 
     it('Server start well :)', function (done) {
 
-        Server.init(null, function (err, server) {
+        Server.init(internals.serverOptions, function (err, server) {
 
             expect(err).to.not.exist();
             done();
@@ -35,7 +48,7 @@ describe('Server', function () {
             name: 'test'
         };
 
-        Server.init(null, function (err, server) {
+        Server.init(internals.serverOptions, function (err, server) {
 
             expect(err).to.exist();
             Version.register = register;

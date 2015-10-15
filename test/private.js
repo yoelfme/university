@@ -19,6 +19,15 @@ var expect = Code.expect;
 
 var internals = {};
 
+internals.serverOptions = {
+    connections: [
+        {
+            host: 'localhost',
+            port: null
+        }
+    ]
+};
+
 internals.header = function (username, password) {
 
     var credentials = new Buffer(username + ':' + password);
@@ -63,7 +72,7 @@ describe('Private Plugin', function () {
             name: 'fake private'
         };
 
-        Server.init(null, function (err) {
+        Server.init(internals.serverOptions, function (err) {
 
             Private.register = register;
             expect(err).to.exist();
@@ -73,7 +82,7 @@ describe('Private Plugin', function () {
 
     it('Authentication successfully :)', function (done) {
 
-        Server.init(null, function (err, server) {
+        Server.init(internals.serverOptions, function (err, server) {
 
             expect(err).to.not.exist();
 
@@ -92,7 +101,7 @@ describe('Private Plugin', function () {
 
     it('Authentication failed :(', function (done) {
 
-        Server.init(null, function (err, server) {
+        Server.init(internals.serverOptions, function (err, server) {
 
             expect(err).to.not.exist();
 
@@ -119,7 +128,7 @@ describe('Private Plugin', function () {
             name: 'fake auth basic'
         };
 
-        Server.init(null, function (err, server) {
+        Server.init(internals.serverOptions, function (err, server) {
 
             Basic.register = register;
             expect(err).to.exist();

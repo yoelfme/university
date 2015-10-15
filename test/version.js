@@ -14,6 +14,19 @@ var describe = lab.describe;
 var it = lab.it;
 var expect = Code.expect;
 
+// Declare internals
+
+var internals = {};
+
+internals.serverOptions = {
+    connections: [
+        {
+            host: 'localhost',
+            port: null
+        }
+    ]
+};
+
 describe('Version Plugin', function () {
 
     it('Register well :)', function (done) {
@@ -30,7 +43,7 @@ describe('Version Plugin', function () {
 
     it('response is equal to package version', function (done) {
 
-        Server.init(null, function (err, server) {
+        Server.init(internals.serverOptions, function (err, server) {
 
             expect(err).to.not.exist();
 
