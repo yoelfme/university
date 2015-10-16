@@ -4,6 +4,8 @@
         "./private": {} ,
         "./home": {},
         "./auth": {},
-        "hapi-auth-basic": {}
+        "hapi-auth-basic": {},
+        "vision": {},
+        "inert": {}
     }
 }
