@@ -4,6 +4,7 @@
 
 var Hapi = require('hapi');
 var Server = require('../lib');
+var Config = require('../lib/config');
 var Version = require('../lib/version');
 var Package = require('../package.json');
 var Lab = require('lab');
@@ -22,7 +23,14 @@ internals.serverOptions = {
     connections: [
         {
             host: 'localhost',
-            port: null
+            port: null,
+            labels: ['web']
+        },
+        {
+            host: 'localhost',
+            port: null,
+            labels: ['web-tls'],
+            tls: Config.tls
         }
     ]
 };
@@ -47,7 +55,7 @@ describe('Version Plugin', function () {
 
             expect(err).to.not.exist();
 
-            server.inject('/version', function (response) {
+            server.select('web-tls').inject('/version', function (response) {
 
                 expect(response.statusCode).to.equal(200);
                 expect(response.result).to.deep.equal({ version: Package.version });

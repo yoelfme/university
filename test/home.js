@@ -3,6 +3,7 @@
 // Load Modules
 
 var Server = require('../lib');
+var Config = require('../lib/config');
 var Vision = require('vision');
 var Path = require('path');
 var Lab = require('lab');
@@ -23,7 +24,14 @@ internals.serverOptions = {
     connections: [
         {
             host: 'localhost',
-            port: null
+            port: null,
+            labels: ['web']
+        },
+        {
+            host: 'localhost',
+            port: null,
+            labels: ['web-tls'],
+            tls: Config.tls
         }
     ]
 };
@@ -36,11 +44,9 @@ describe('Home Plugin', function () {
 
             expect(err).to.not.exist();
 
-            server.inject('/home', function (response) {
+            server.select('web-tls').inject('/home', function (response) {
 
                 expect(response.statusCode).to.equal(200);
-                expect(response.result).to.contains(internals.path);
-
             });
         });
 

@@ -5,6 +5,7 @@
 var Hapi = require('hapi');
 var Basic = require('hapi-auth-basic');
 var Server = require('../lib');
+var Config = require('../lib/config');
 var Private = require('../lib/private');
 var Users = require('../lib/users.json');
 var Lab = require('lab');
@@ -23,7 +24,14 @@ internals.serverOptions = {
     connections: [
         {
             host: 'localhost',
-            port: null
+            port: null,
+            labels: ['web']
+        },
+        {
+            host: 'localhost',
+            port: null,
+            labels: ['web-tls'],
+            tls: Config.tls
         }
     ]
 };
@@ -88,7 +96,7 @@ describe('Private Plugin', function () {
 
             var request = internals.request(internals.header(Users.Yoel.username, Users.Yoel.password));
 
-            server.inject(request, function (response) {
+            server.select('web-tls').inject(request, function (response) {
 
                 expect(response.statusCode).to.equal(200);
                 expect(response.result).to.equal('<div>Hello Yoel</div>');
@@ -106,7 +114,7 @@ describe('Private Plugin', function () {
             expect(err).to.not.exist();
 
             var request = internals.request(internals.header('User unknown', ''));
-            server.inject(request, function (response) {
+            server.select('web-tls').inject(request, function (response) {
 
                 expect(response.statusCode).to.equal(401);
 
